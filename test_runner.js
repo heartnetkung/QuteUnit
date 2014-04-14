@@ -1,6 +1,7 @@
 try {
 	var result = '';
 	var testLib, exportHtml;
+	var fs = require('fs');
 
 	//code builder
 	(function() {
@@ -43,15 +44,13 @@ try {
 
 	//export html
 	(function() {
-		var fs = require('fs');
-		var OUTPUT_PATH = 'test';
 		var QUNIT_TEMPLATE =
 			'<!DOCTYPE html><html><head><meta charset="utf-8"><title>Build Result</title><link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css"></head><body><div id="qunit"></div><div id="qunit-fixture"></div><br><br><center><h3>Test Code</h3><div id="source"></div></center><script src="http://code.jquery.com/qunit/qunit-git.js"></script><script>script_here ;var sourceList=source_here;var parent=document.getElementById("source");for(var i=0,ii=sourceList.length;i<ii;i++){var a=document.createElement("a");a.innerHTML=sourceList[i];a.href=sourceList[i];a.style.display="block";parent.appendChild(a);}</script></body></html>';
 
 		exportHtml = function(jsCode, sourceCodeArray) {
 			var exportingContent = QUNIT_TEMPLATE.replace(/script_here/, jsCode).replace(
 				/source_here/, JSON.stringify(sourceCodeArray));
-			fs.write(OUTPUT_PATH + '/qunit.html', exportingContent, 'w');
+			fs.write('qunit.html', exportingContent, 'w');
 		};
 	})();
 
@@ -63,12 +62,14 @@ try {
 		};
 		page.open('http://127.0.0.1:1234', function(status) {
 			try {
-				page.injectJs('../runtime_scripts/jquery.min.js');
+				page.injectJs('jquery.min.js');
 
 				var args = require('system').args;
+				console.log(args);
+				var cwd = fs.workingDirectory;
 				var srcList = [];
 				for (var i = 1, ii = args.length; i < ii; i++) {
-					var temp = require(args[i]);
+					var temp = require(cwd + '/' + args[i]);
 					temp.test(testLib, page);
 					srcList.push(args[i].replace(/^\.\//, '') + '.js');
 				}

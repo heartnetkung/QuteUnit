@@ -1,8 +1,12 @@
 {
 	"name": "quteunit",
-	"description":"unit test for node and phantomjs",
+	"description": "unit test for node and phantomjs",
 	"version": "0.0.1",
 	"dependencies": {
 		"phantomjs": "1.x.x"
+	},
+	"bin": {
+		"qutephantom": "lib/phantom_wrapper.js",
+		"qutenode":"lib/node_runner.js"
 	}
 }
