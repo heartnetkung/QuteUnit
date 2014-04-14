@@ -14,7 +14,7 @@ sudo npm install -g https://github.com/heartnetkung/QuteUnit/tarball/master
 
 ## Example
 
-#### Test Code (test.js)
+#### Test Code (test1.js)
 ```javascript
 exports.test = function(testLib,webpage) {
 	with(testLib) {
@@ -56,9 +56,13 @@ exports.test = function(testLib,webpage) {
 
 #### Command Line
 ```
-qutephantom ./test1 ./test2 or qutenode ./test1 ./test2
+qutephantom ./test1 ./test2 
 ```
-where the current directory has the test.js file. Actually the arguments will be used be require().
+or
+```
+qutenode ./test1 ./test2
+```
+where the current directory has the test.js file. Actually the arguments will be used be [require()](http://stackoverflow.com/questions/9475792/how-does-require-in-node-js-work).
 
 ## API
 
