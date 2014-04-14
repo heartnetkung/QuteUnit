@@ -6,6 +6,7 @@ QuteUnit introduces a QUnit-like API to test simple Javascript functions via pha
 * beautiful qunit report output
 * can use phantom's require('webpage').create()
 * callable from terminal
+* easily navigate to your testing code (just a click away!)
 
 #### Installation
 ```
@@ -63,6 +64,10 @@ or
 qutenode ./test1 ./test2
 ```
 where the current directory has the test.js file. Actually the arguments will be used be [require()](http://stackoverflow.com/questions/9475792/how-does-require-in-node-js-work).
+
+When you run the command, we'd open the result of your test in your default web browser. Here's the screenshot.
+
+![alt text](https://raw.githubusercontent.com/wiki/heartnetkung/QuteUnit/ss.png "Screenshot 1")
 
 ## API
 

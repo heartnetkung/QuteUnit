@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Unit Test via Phantomjs</title><link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-git.css"></head><body><div id="qunit"></div><div id="qunit-fixture"></div><br><br><center><h3>Test Code</h3><div id="source"></div></center><script src="http://code.jquery.com/qunit/qunit-git.js"></script><script>test('isNode',function(){
+  ok(true,'It is phantom');
+  ok(false,'It is node');
+
+});
+test('timesTwo(number)',function(){
+  deepEqual(JSON.parse('4'),JSON.parse('4'),JSON.parse('\u0022call(2) === 4\u0022'));
+  deepEqual(JSON.parse('0'),JSON.parse('0'),JSON.parse('\u0022call(null) === 0\u0022'));
+
+});
+test('webpage',function(){
+  ok(true,'jquery works! (only in phantomjs)');
+
+});
+test('throws',function(){
+  throws(function(){throw "error"},JSON.parse('\u0022throws with just a message, not using the \u0027expected\u0027 argument\u0022'));
+  throws(function(){throw {"message":"some error description"}},eval(/description/),JSON.parse('\u0022raised error message contains \u0027description\u0027\u0022'));
+
+});
+ ;var sourceList=["example/example.js"];var parent=document.getElementById("source");for(var i=0,ii=sourceList.length;i<ii;i++){var a=document.createElement("a");a.innerHTML=sourceList[i];a.href=sourceList[i];a.style.display="block";parent.appendChild(a);}</script></body></html>
