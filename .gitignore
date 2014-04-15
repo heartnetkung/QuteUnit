@@ -25,4 +25,4 @@ build/Release
 node_modules
 
 # temp
-example/qunit.html
+qunit.html
