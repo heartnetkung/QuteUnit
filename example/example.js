@@ -29,6 +29,10 @@ exports.test = function(testLib, webpage) {
 			ok(result && result.a === 3, 'jquery works! (only in phantomjs)');
 		});
 
+		test('manual conversion', function() {
+			equal('hello\n', 'hello\n', 'nga');
+		});
+
 		test('throws', function() {
 			function CustomError(message) {
 				this.message = message;
